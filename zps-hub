@@ -6,6 +6,14 @@ game.StarterGui:SetCore("SendNotification",  {
  Callback = NotificationBindable;
 })
 
+game.StarterGui:SetCore("SendNotification",  {
+ Title = "Wellcome ZPS-Hub";
+ Text = "by zeroZpsgaming";
+ Icon = "rbxassetid://11963319775";
+ Duration = 5;
+ Callback = NotificationBindable;
+})
+
 if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7449423635 then
 _G.Color = Color3.fromRGB(255,0,0)
 if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
@@ -2088,8 +2096,8 @@ Toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Toggle.Position = UDim2.new(0.120833330, 0, 0.0952890813, 0)
 Toggle.Size = UDim2.new(0, 50, 0, 50)
 Toggle.Font = Enum.Font.Code
-Toggle.Text = "Z"
-Toggle.TextColor3 = Color3.fromRGB(1, 1, 1)
+Toggle.Text = "ZPS"
+Toggle.TextColor3 = Color3.fromRGB(0, 255, 255)
 Toggle.TextScaled = true
 Toggle.MouseButton1Down:connect(function()
 game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
@@ -2102,9 +2110,7 @@ local DarkraiX = loadstring(game:HttpGet("https://raw.githubusercontent.com/zero
 local Library = DarkraiX:Window("ZPS-HUB","Blox-Fruit","RightAlt",Enum.KeyCode.RightControl);
 
 --------------------------------------------------------------------
-local Home = Library:AddTab("General","6026568198")
 local Main = Library:AddTab("Menu Farm","6026568198")
-local Item = Library:AddTab("auto item","6026568198")
 local Combat = Library:AddTab("Player","7251993295")
 local Stats = Library:AddTab("Stats","7040410130")
 local Teleport = Library:AddTab("Teleport Island","6035190846")
@@ -2112,17 +2118,12 @@ local Dungeon = Library:AddTab("Raid","7044284832")
 local DevilFruit = Library:AddTab("Devil Fruit","7044233235")
 local Shop = Library:AddTab("Shop","6031265976")
 local Misc = Library:AddTab("Miscellaneous","6034509993")
-local sett = Library:AddTab("Misc X","6034509993")
-local setting = Library:AddTab("Setting & attack","6034509993")
-local settingz = Library:AddTab("Setting","6034509993")
+local sett = Library:AddTab("Setting","6034509993")
 --------------------------------------------------------------------
-Home:AddSeperator("YT:zeroZpsgaming - ZPSHUB - Freescript")
-Home:AddSeperator("Thank for use script")
-Home:AddSeperator("Make By zeroZpsgaming")
+Main:AddSeperator("YT:zeroZpsgaming - ZPSHUB - Freescript")
+Main:AddSeperator("V3")
 
-Home:AddSeperator("V1 Make")
-
-Home = Main:AddLabel("Server Time")
+Time = Main:AddLabel("Server Time")
 
 function UpdateTime()
 local GameTime = math.floor(workspace.DistributedGameTime+0.5)
@@ -2140,7 +2141,7 @@ end)
 end
 end)
 
-sett:AddButton("Remove Sound",function()
+Main:AddButton("Remove Sound",function()
 
 
 
@@ -2151,17 +2152,17 @@ end
 end
 end)
 
-sett:AddToggle("Delete Effect hit",false,function(value)
+Main:AddToggle("Delete Effect hit",false,function(value)
 getgenv().D = value
 end)
 
-sett:AddButton("Delete Effect Damage", function()
+Main:AddButton("Delete Effect Damage", function()
 game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
 end)
 
-setting:AddSeperator("Attack Settings")
+Main:AddSeperator("Attack Settings")
 
-setting:AddToggle("Fast Attack",true,function(Fast)
+Main:AddToggle("Fast Attack",true,function(Fast)
 
 _G.FastAttack = Fast
 
@@ -2189,7 +2190,7 @@ task.wait()
 end
 end)
 
-setting:AddToggle("Fast Attack 1",false,function(Fastz)
+Main:AddToggle("Fast Attack 1",false,function(Fastz)
 
 _G.FastAttack1 = Fastz
 
@@ -2217,7 +2218,7 @@ task.wait()
 end
 end)
 
-setting:AddToggle("Fast Attack 2",false,function(Fastx)
+Main:AddToggle("Fast Attack 2",false,function(Fastx)
 
 _G.FastAttack2 = Fastx
 
@@ -2245,7 +2246,7 @@ task.wait()
 end
 end)
 
-setting:AddToggle("Fast Attack 3",false,function(Fastc)
+Main:AddToggle("Fast Attack 3",false,function(Fastc)
 
 _G.FastAttack3 = Fastc
 
@@ -2273,7 +2274,7 @@ task.wait()
 end
 end)
 
-setting:AddToggle("Fast Attack 4",false,function(Fastd)
+Main:AddToggle("Fast Attack 4",false,function(Fastd)
 
 _G.FastAttack4 = Fastd
 
@@ -2301,35 +2302,7 @@ task.wait()
 end
 end)
 
-setting:AddToggle("Fast Attack 5",false,function(Fastf)
-
-_G.FastAttack4 = Fastf
-
-end)
-local Module =  require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
-local CombatFramework = debug.getupvalues(Module)[2]
-local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
-
-spawn(function()
-while true do
-if _G.FastAttack2 then
-pcall(function()
-CameraShakerR:Stop()
-CombatFramework.activeController.attacking = false
-CombatFramework.activeController.timeToNextAttack = 100
-CombatFramework.activeController.increment = 1
-CombatFramework.activeController.hitboxMagnitude = 100
-CombatFramework.activeController.blocking = false
-CombatFramework.activeController.timeToNextBlock = 0
-CombatFramework.activeController.focusStart = 0
-CombatFramework.activeController.humanoid.AutoRotate = true
-end)
-end
-task.wait()
-end
-end)
-
-settingz:AddToggle("Auto Set Spawn Points",flase,function(value)
+Main:AddToggle("Auto Set Spawn Points",true,function(value)
 _G.AutoSetSpawn = value
 end)
 
@@ -2345,7 +2318,7 @@ end
 end)
 end)
 
-settingz:AddToggle("Bring Mob",true,function(value)
+Main:AddToggle("Bring Mob",true,function(value)
 _G.BringMonster = value
 end)
 
@@ -2449,7 +2422,8 @@ end
 end
 end)
 
-Item:AddToggle("Auto Second Sea",_G.AutoSecondSea,function(value)
+if World1 then
+Main:AddToggle("Auto Second Sea",_G.AutoSecondSea,function(value)
 _G.AutoSecondSea = value
 StopTween(_G.AutoSecondSea)
 end)
@@ -2510,7 +2484,8 @@ end
 end)
 end
 
-Item:AddToggle("Auto Third Sea",_G.AutoThirdSea,function(value)
+if World2 then
+Main:AddToggle("Auto Third Sea",_G.AutoThirdSea,function(value)
 _G.AutoThirdSea = value
 StopTween(_G.AutoThirdSea)
 end)
@@ -2558,7 +2533,8 @@ end
 end)
 end
 
-Item:AddToggle("Auto Farm Factory",_G.AutoFactory,function(value)
+if World2 then
+Main:AddToggle("Auto Farm Factory",_G.AutoFactory,function(value)
 _G.AutoFactory = value
 StopTween(_G.AutoFactory)
 end)
@@ -2586,8 +2562,8 @@ end
 end)
 end
 end)
-
-Item:AddToggle("Auto Mystic Island",_G.AutoMysticIsland,function(value)
+elseif World3 then
+Main:AddToggle("Auto Mystic Island",_G.AutoMysticIsland,function(value)
 _G.AutoMysticIsland = value
 end)
 
@@ -2604,9 +2580,9 @@ end
 end)
 end
 
-Item:AddSeperator("Auto Melee")
+Main:AddSeperator("Auto Melee")
 
-Item:AddToggle("Auto Superhuman",_G.AutoSuperhuman,function(value)
+Main:AddToggle("Auto Superhuman",_G.AutoSuperhuman,function(value)
 _G.AutoSuperhuman = value
 end)
 
@@ -2683,7 +2659,7 @@ end
 end)
 end)
 
-Item:AddToggle("Auto DeathStep",_G.AutoDeathStep,function(value)
+Main:AddToggle("Auto DeathStep",_G.AutoDeathStep,function(value)
 _G.AutoDeathStep = value
 end)
 
@@ -2709,7 +2685,7 @@ end
 end
 end)
 
-Item:AddToggle("Auto Sharkman Karate",_G.AutoSharkman,function(value)
+Main:AddToggle("Auto Sharkman Karate",_G.AutoSharkman,function(value)
 _G.AutoSharkman = value
 end)
 
@@ -2757,7 +2733,7 @@ end
 end)
 end)
 
-Item:AddToggle("Auto Electric Claw",_G.AutoElectricClaw,function(value)
+Main:AddToggle("Auto Electric Claw",_G.AutoElectricClaw,function(value)
 _G.AutoElectricClaw = value
 StopTween(_G.AutoElectricClaw)
 end)
@@ -2828,7 +2804,7 @@ end
 end)
 end)
 
-Item:AddToggle("Auto Dragon Talon",_G.AutoDragonTalon,function(value)
+Main:AddToggle("Auto Dragon Talon",_G.AutoDragonTalon,function(value)
 _G.AutoDragonTalon = value
 end)
 
@@ -3305,9 +3281,9 @@ end
 end
 end)
 
-Item:AddSeperator("Dought")
+Main:AddSeperator("Dought")
 
-local MobKilled = Item:AddLabel("Killed")
+local MobKilled = Main:AddLabel("Killed")
 
 spawn(function()
 while wait() do
@@ -3325,7 +3301,7 @@ end)
 end
 end)
 
-Item:AddToggle("Auto Dought Boss",_G.AutoDoughtBoss,function(value)
+Main:AddToggle("Auto Dought Boss",_G.AutoDoughtBoss,function(value)
 _G.AutoDoughtBoss = value
 StopTween(_G.AutoDoughtBoss)
 end)
@@ -3428,9 +3404,9 @@ end
 end
 end)
 
-Item:AddSeperator("Full Auto Item")
+Main:AddSeperator("Advance Dungeon")
 
-Item:AddToggle("Auto ALL Item",_G.AutoAdvanceDungeon,function(value)
+Main:AddToggle("Auto Advance Dungeon",_G.AutoAdvanceDungeon,function(value)
 _G.AutoAdvanceDungeon = value
 StopTween(_G.AutoAdvanceDungeon)
 end)
@@ -3465,14 +3441,14 @@ end
 end
 end)
 
-Item:AddSeperator("Buddy Sword")
+Main:AddSeperator("Buddy Sword")
 
-Item:AddToggle("Auto Buddy Sword",_G.AutoBudySword,function(value)
+Main:AddToggle("Auto Buddy Sword",_G.AutoBudySword,function(value)
 _G.AutoBudySword = value
 StopTween(_G.AutoBudySword)
 end)
 
-Item:AddToggle("Auto Buddy Sword Hop",_G.AutoBudySwordHop,function(value)
+Main:AddToggle("Auto Buddy Sword Hop",_G.AutoBudySwordHop,function(value)
 _G.AutoBudySwordHop = value
 end)
 
@@ -3512,7 +3488,7 @@ end
 end
 end)
 
-Item:AddSeperator("Elite")
+Main:AddSeperator("Elite")
 
 local EliteProgress = Main:AddLabel("")
 
@@ -3524,7 +3500,7 @@ end
 end)
 end)
 
-Item:AddToggle("Auto Elite Hunter",_G.AutoElitehunter,function(value)
+Main:AddToggle("Auto Elite Hunter",_G.AutoElitehunter,function(value)
 _G.AutoElitehunter = value
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
 StopTween(_G.AutoElitehunter)
@@ -3586,18 +3562,18 @@ end
 end
 end)
 
-Item:AddToggle("Auto Elite Hunter Hop",_G.AutoEliteHunterHop,function(value)
+Main:AddToggle("Auto Elite Hunter Hop",_G.AutoEliteHunterHop,function(value)
 _G.AutoEliteHunterHop = value
 end)
 
-Item:AddSeperator("Hallow Scythe")
+Main:AddSeperator("Hallow Scythe")
 
-Item:AddToggle("Auto Hallow Scythe",_G.AutoFarmBossHallow,function(value)
+Main:AddToggle("Auto Hallow Scythe",_G.AutoFarmBossHallow,function(value)
 _G.AutoFarmBossHallow = value
 StopTween(_G.AutoFarmBossHallow)
 end)
 
-Item:AddToggle("Auto Hallow Scythe Hop",_G.AutoFarmBossHallowHop,function(value)
+Main:AddToggle("Auto Hallow Scythe Hop",_G.AutoFarmBossHallowHop,function(value)
 _G.AutoFarmBossHallowHop = value
 end)
 
@@ -3637,7 +3613,7 @@ end
 end
 end)
 
-Item:AddSeperator("Dark Dagger")
+Main:AddSeperator("Dark Dagger")
 
 Main:AddToggle("Auto Dark Dagger",_G.AutoDarkDagger,function(value)
 _G.AutoDarkDagger = value
@@ -3672,7 +3648,7 @@ end
 end)
 end)
 
-Item:AddToggle("Auto Dark Dagger Hop",_G.AutoDarkDagger_Hop,function(value)
+Main:AddToggle("Auto Dark Dagger Hop",_G.AutoDarkDagger_Hop,function(value)
 _G.AutoDarkDagger_Hop = value
 end)
 
@@ -3686,7 +3662,7 @@ end
 end)
 end)
 
-Item:AddSeperator("Swan Glasses")
+Main:AddSeperator("Swan Glasses")
 
 Main:AddToggle("Auto Swan Glasses",_G.AutoFarmSwanGlasses,function(value)
 _G.AutoFarmSwanGlasses = value
@@ -3724,7 +3700,7 @@ end
 end)
 end)
 
-Item:AddToggle("Auto Swan Glasses Hop",_G.AutoFarmSwanGlasses_Hop,function(value)
+Main:AddToggle("Auto Swan Glasses Hop",_G.AutoFarmSwanGlasses_Hop,function(value)
 _G.AutoFarmSwanGlasses_Hop = value
 end)
 
@@ -3738,7 +3714,7 @@ end
 end)
 end)
 
-Item:AddSeperator("Bone")
+Main:AddSeperator("Bone")
 
 local BoneFarm = Main:AddToggle("Auto Farm Bone",_G.Auto_Bone,function(value)
 _G.Auto_Bone = value
@@ -3787,7 +3763,7 @@ end
 end
 end)
 
-Item:AddToggle("Auto Random Surprise",_G.Auto_Random_Bone,function(value)
+Main:AddToggle("Auto Random Surprise",_G.Auto_Random_Bone,function(value)
 _G.Auto_Random_Bone = value
 end)
 
@@ -3801,7 +3777,7 @@ end
 end)
 end)
 
-Item:AddSeperator("Observation")
+Main:AddSeperator("Observation")
 
 local ObservationRange = Main:AddLabel("")
 
@@ -3813,7 +3789,7 @@ end)
 end
 end)
 
-Item:AddToggle("Auto Farm Observation",_G.AutoObservation,function(value)
+Main:AddToggle("Auto Farm Observation",_G.AutoObservation,function(value)
 _G.AutoObservation = value
 StopTween(_G.AutoObservation)
 end)
@@ -3835,7 +3811,7 @@ end)
 end
 end)
 
-Item:AddToggle("Auto Farm Observation Hop",_G.AutoObservation_Hop,function(value)
+Main:AddToggle("Auto Farm Observation Hop",_G.AutoObservation_Hop,function(value)
 _G.AutoObservation_Hop = value
 end)
 
@@ -3912,14 +3888,14 @@ end
 end)
 end)
 
-Item:AddSeperator("Saber")
+Main:AddSeperator("Saber")
 
-Item:AddToggle("Auto Saber",_G.AutoSaber,function(value)
+Main:AddToggle("Auto Saber",_G.AutoSaber,function(value)
 _G.AutoSaber = value
 StopTween(_G.AutoSaber)
 end)
 
-Item:AddToggle("Auto Saber Hop",_G.AutoSaber_Hop,function(value)
+Main:AddToggle("Auto Saber Hop",_G.AutoSaber_Hop,function(value)
 _G.AutoSaber_Hop = value
 end)
 
@@ -3961,7 +3937,7 @@ end
 end
 end)
 
-Item:AddSeperator("Legendary Sword")
+Main:AddSeperator("Legendary Sword")
 
 Main:AddToggle("Auto Legendary Sword",_G.AutoBuyLegendarySword,function(value)
 _G.AutoBuyLegendarySword = value
@@ -3995,17 +3971,17 @@ end
 end
 end)
 
-Item:AddToggle("Auto Legendary Sword Hop",_G.AutoBuyLegendarySword_Hop,function(value)
+Main:AddToggle("Auto Legendary Sword Hop",_G.AutoBuyLegendarySword_Hop,function(value)
 _G.AutoBuyLegendarySword_Hop = value
 end)
 
-Item:AddSeperator("Enchancement Colour")
+Main:AddSeperator("Enchancement Colour")
 
-Item:AddToggle("Auto Enchancement Colour",_G.AutoBuyEnchancementColour,function(value)
+Main:AddToggle("Auto Enchancement Colour",_G.AutoBuyEnchancementColour,function(value)
 _G.AutoBuyEnchancementColour = value
 end)
 
-Item:AddToggle("Auto Enchancement Hop",_G.AutoBuyEnchancementColour_Hop,function(value)
+Main:AddToggle("Auto Enchancement Hop",_G.AutoBuyEnchancementColour_Hop,function(value)
 _G.AutoBuyEnchancementColour_Hop = value
 end)
 
@@ -4025,9 +4001,9 @@ end
 end
 end)
 
-Item:AddSeperator("Other")
+Main:AddSeperator("Other")
 
-Item:AddToggle("Auto Musketeer Hat",_G.AutoMusketeerHat,function(value)
+Main:AddToggle("Auto Musketeer Hat",_G.AutoMusketeerHat,function(value)
 _G.AutoMusketeerHat = value
 StopTween(_G.AutoMusketeerHat)
 end)
@@ -4108,7 +4084,7 @@ end
 end)
 end)
 
-Item:AddToggle("Auto Rainbow Haki",_G.Auto_Rainbow_Haki,function(value)
+Main:AddToggle("Auto Rainbow Haki",_G.Auto_Rainbow_Haki,function(value)
 _G.Auto_Rainbow_Haki = value
 StopTween(_G.Auto_Rainbow_Haki)
 end)
@@ -4235,7 +4211,7 @@ end
 end)
 end)
 
-Item:AddToggle("Auto Observation Haki v2",_G.AutoObservationv2,function(value)
+Main:AddToggle("Auto Observation Haki v2",_G.AutoObservationv2,function(value)
 _G.AutoObservationv2 = value
 StopTween(_G.AutoObservationv2)
 end)
@@ -4280,7 +4256,7 @@ end)
 end
 end)
 
-Item:AddToggle("Auto Rengoku",_G.AutoRengoku,function(value)
+Main:AddToggle("Auto Rengoku",_G.AutoRengoku,function(value)
 _G.AutoRengoku = value
 StopTween(_G.AutoRengoku)
 end)
@@ -4318,7 +4294,7 @@ end
 end)
 end)
 
-Item:AddToggle("Auto Farm Ectoplasm",_G.AutoEctoplasm,function(value)
+Main:AddToggle("Auto Farm Ectoplasm",_G.AutoEctoplasm,function(value)
 _G.AutoEctoplasm = value
 StopTween(_G.AutoEctoplasm)
 end)
@@ -4362,7 +4338,7 @@ end
 end)
 end)
 
-Item:AddToggle("Auto Yama",_G.AutoYama,function(value)
+Main:AddToggle("Auto Yama",_G.AutoYama,function(value)
 _G.AutoYama = value
 StopTween(_G.AutoYama)
 end)
@@ -4379,7 +4355,7 @@ end
 end
 end)
 
-Item:AddToggle("Auto Evo Race",_G.Auto_EvoRace,function(value)
+Main:AddToggle("Auto Evo Race",_G.Auto_EvoRace,function(value)
 _G.Auto_EvoRace = value
 StopTween(_G.Auto_EvoRace)
 end)
@@ -4434,7 +4410,7 @@ end
 end)
 end)
 
-Item:AddToggle("Auto Bartlio Quest",_G.AutoBartilo,function(value)
+Main:AddToggle("Auto Bartlio Quest",_G.AutoBartilo,function(value)
 _G.AutoBartilo = value
 end)
 
@@ -4527,7 +4503,7 @@ end
 end)
 end)
 
-Item:AddToggle("Auto Holy Torch",_G.AutoHolyTorch,function(value)
+Main:AddToggle("Auto Holy Torch",_G.AutoHolyTorch,function(value)
 _G.AutoHolyTorch = value
 StopTween(_G.AutoHolyTorch)
 end)
@@ -4841,7 +4817,7 @@ game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.CanCollide 
 topos(game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.CFrame * CFrame.new(0,35,0))
 spawn(function()
 pcall(function()
-if _G.SelectWeapon == SelectWeaponSword then
+if _G.SelectWeapon == SelectWeaponGun then
 local args = {
 [1] = game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.Position,
 [2] = game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart
@@ -4881,7 +4857,7 @@ end)
 end
 end)
 
-Combat:AddToggle("Aimbot Gun[error]",false,function(value)
+Combat:AddToggle("Aimbot Gun",false,function(value)
 _G.Aimbot_Gun = value
 end)
 
@@ -4902,7 +4878,7 @@ end
 end
 end)
 
-Combat:AddToggle("Aimbot Skill [select player]",false,function(value)
+Combat:AddToggle("Aimbot Skill",false,function(value)
 _G.Aimbot_Skill = value
 end)
 
@@ -5205,7 +5181,7 @@ wait(.1)
 NextplySelect = false
 end)
 
-Combat:AddSlider("Lock Bounty",1,25000000,3000000,function(value)
+Combat:AddSlider("Lock Bounty",1,25000000,750000,function(value)
 _G.BountyLock = value
 end)
 
