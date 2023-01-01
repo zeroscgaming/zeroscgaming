@@ -2110,7 +2110,8 @@ local DarkraiX = loadstring(game:HttpGet("https://raw.githubusercontent.com/zero
 local Library = DarkraiX:Window("ZPS-HUB","Blox-Fruit","RightAlt",Enum.KeyCode.RightControl);
 
 --------------------------------------------------------------------
-local Main = Library:AddTab("Menu Farm","6026568198")
+local Main = Library:AddTab("Menu","6026568198")
+local Mainz = Library:AddTab("item","6026568198")
 local Combat = Library:AddTab("Player","7251993295")
 local Stats = Library:AddTab("Stats","7040410130")
 local Teleport = Library:AddTab("Teleport Island","6035190846")
@@ -2121,7 +2122,7 @@ local Misc = Library:AddTab("Miscellaneous","6034509993")
 local sett = Library:AddTab("Setting","6034509993")
 --------------------------------------------------------------------
 Main:AddSeperator("YT:zeroZpsgaming - ZPSHUB - Freescript")
-Main:AddSeperator("V3")
+Main:AddSeperator("V1")
 
 Time = Main:AddLabel("Server Time")
 
