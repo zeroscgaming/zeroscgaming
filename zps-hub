@@ -2097,7 +2097,7 @@ game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
 end)
 
 --------------------------------------------------------------------
-local DarkraiX = loadstring(game:HttpGet("https://raw.githubusercontent.com/zeroscgaming/zeroscgaming/main/lib/roblox/zps-hub", true))()
+local DarkraiX = loadstring(game:HttpGet("https://raw.githubusercontent.com/zeroscgaming/zeroscgaming/main/RDE.lib/Dark%20UI", true))()
 
 local Library = DarkraiX:Window("ZPS-HUB","Blox-Fruit","RightAlt",Enum.KeyCode.RightControl);
 
